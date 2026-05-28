@@ -22,5 +22,15 @@ Route::prefix('/aluno')->group(function(){
 
 Route::prefix('/curso')->group(function(){
     Route::get('/index', [App\Http\Controllers\CursoController::class, 'index'])->name('curso.index');
-    Route::get('/add', [App\Http\Controllers\CursoController::class, 'add'])->name('curso.add');
+    Route::post('/add', [App\Http\Controllers\CursoController::class, 'add'])->name('curso.add');
+});
+
+Route::prefix('/professor')->group(function(){
+    Route::get('/index', [App\Http\COntrollers\ProfessorController::class, 'index'])->name('professor.index');
+    Route::post('/add', [App\Http\COntrollers\ProfessorController::class, 'add'])->name('professor.add');
+});
+
+Route::prefix('/componente')->group(function(){
+    Route::get('/index', [App\Http\COntrollers\ComponenteController::class, 'index'])->name('componente.index');
+    Route::post('/add', [App\Http\COntrollers\ComponenteController::class, 'add'])->name('componente.add');
 });
