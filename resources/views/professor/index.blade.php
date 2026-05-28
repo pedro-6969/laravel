@@ -11,6 +11,9 @@
         <input type="text" name="telefone" id="telefone">
 
         <button type="submit">Salvar</button>
+        @isset($success)
+            <h1>{{ $success }}</h1>
+        @endisset
     </form>
 
     @isset($professores)

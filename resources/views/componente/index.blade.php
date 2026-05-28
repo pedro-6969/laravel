@@ -11,6 +11,9 @@
         <input type="datetime-local" name="hora_fim" id="hora_fim">
 
         <button type="submit">Salvar</button>
+        @isset($success)
+            <h1>{{ $success }}</h1>
+        @endisset
     </form>
     @isset($componentes)
             @foreach ($componentes as $componente)

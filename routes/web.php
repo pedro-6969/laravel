@@ -34,3 +34,8 @@ Route::prefix('/componente')->group(function(){
     Route::get('/index', [App\Http\COntrollers\ComponenteController::class, 'index'])->name('componente.index');
     Route::post('/add', [App\Http\COntrollers\ComponenteController::class, 'add'])->name('componente.add');
 });
+
+Route::prefix('/administrador')->group(function(){
+    Route::get('/index', [App\Http\COntrollers\AdministradorController::class, 'index'])->name('administrador.index');
+    Route::post('/add', [App\Http\COntrollers\AdministradorController::class, 'add'])->name('administrador.add');
+});

@@ -8,6 +8,9 @@
         <input type=text name="periodo" id="periodo">
 
         <button type="submit">Salvar</button>
+        @isset($success)
+            <h1>{{ $success }}</h1>
+        @endisset
     </form>
 
     @isset($cursos)
