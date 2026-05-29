@@ -10,9 +10,27 @@
         @endisset
     </form>
 
-    @isset($alunos)
+    <table border="1">
+        <tr>
+            <td>Nome do aluno</td>
+            <td colspan="2">Ações</td>
+        </tr>
+        @isset($alunos)
             @foreach($alunos as $aluno)
-                <h3>{{ $aluno->nome }}</h3>
-            @endforeach
-    @endisset
+                <tr>
+                    <td>
+                        <h3>{{ $aluno->nome }}</h3>
+                    </td>
+                    <td>
+                        <form action="{{ route('aluno.remove', ['id' => $aluno->id]) }}">
+                            <button type="submit">Remover</button>
+                        </form>
+                    </td>
+                    <td>
+                        <button type="submit">Atualizar</button>
+                    </td>
+                </tr>
+                @endforeach
+        @endisset
+    </table>
 </div>

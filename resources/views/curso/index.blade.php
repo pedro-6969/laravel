@@ -13,11 +13,32 @@
         @endisset
     </form>
 
-    @isset($cursos)
-            @foreach ($cursos as $curso)
-                <h3>Curso: {{ $curso->nome }} - Período: {{ $curso->periodo  }}
-            @endforeach
-    @endisset
-
+    <table border="1">
+        <tr>
+            <td>Nome do Curso</td>
+            <td>Período</td>
+            <td coldspan="2">Ações</td>
+        </tr>
+        @isset($cursos)
+                @foreach ($cursos as $curso)
+                    <tr>
+                        <td>
+                            Curso: {{ $curso->nome }}
+                        </td>
+                        <td>
+                            Período: {{ $curso->periodo }}
+                        </td>
+                        <td>
+                            <form action="{{ route('curso.remove', ['id' => $curso->id]) }}">
+                                <button type="submit">Remover</button>
+                            </form>
+                        </td>
+                        <td>
+                            <button type="submit">Atualizar</button>
+                        </td>
+                    </tr>
+                @endforeach
+        @endisset
+    </table>
     
 </div>
