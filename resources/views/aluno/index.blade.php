@@ -22,7 +22,7 @@
                         <h3>{{ $aluno->nome }}</h3>
                     </td>
                     <td>
-                        <form action="{{ route('aluno.remove', ['id' => $aluno->id]) }}">
+                        <form action="{{ route('aluno.remove', ['id' => $aluno->id]) }}" method="GET">
                             <button type="submit">Remover</button>
                         </form>
                     </td>

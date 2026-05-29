@@ -18,4 +18,11 @@ class ProfessorController extends Controller
 
         return view('professor.index', ['sucess'=>'Professor Cadastrado!', 'professores'=>$professores::all()]);
     }
+
+    function remove(string $id){
+        $professor = new \App\Models\ProfessorModel();
+        $professor::destroy($id);
+
+        return view('professor.index', ['sucess'=>'Professor Removido!', 'professores'=>$professor::all()]);
+    }
 }

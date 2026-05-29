@@ -28,9 +28,34 @@
         @endisset
     </form>
 
-    @isset($administradores)
+    <table border="1">
+        <tr>
+            <td>Administrador</td>
+            <td>E-mail</td>
+            <td>Telefone</td>
+            <td>CPF</td>
+            <td>Usuário</td>
+            <td>Senha</td>
+            <td>Status</td>
+        </tr>
+        @isset($administradores)
             @foreach($administradores as $administrador)
-                <h3>Nome {{ $administrador->nome }} - E-mail {{ $administrador->email }} - Telefone {{ $administrador->telefone }} - CPF {{ $administrador->cpf }} - Usuário {{ $administrador->usuario }} - Senha {{ $administrador->senha }} - Status {{ $administrador->status }}</h3>
+                <tr>
+                    <td>{{ $administrador->nome }}</td>
+                    <td>{{ $administrador->email }}</td>
+                    <td>{{ $administrador->telefone }}</td>
+                    <td>{{ $administrador->cpf }}</td>
+                    <td>{{ $administrador->usuario }}</td>
+                    <td>{{ $administrador->senha}}</td>
+                    <td>{{ $administrador->status}}</td>
+                    <td>
+                        <form action="{{ route('administrador.remove', ['id' => $administrador->id]) }}" method="GET">
+                            <button type="submit">Remover</button>
+                        </form>
+                    </td>
+                    <td><button type="submit">Atualizar</button></td>
+                </tr>
             @endforeach
-    @endisset
+        @endisset
+    </table>
 </div>

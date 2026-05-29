@@ -29,7 +29,7 @@
                             Período: {{ $curso->periodo }}
                         </td>
                         <td>
-                            <form action="{{ route('curso.remove', ['id' => $curso->id]) }}">
+                            <form action="{{ route('curso.remove', ['id' => $curso->id]) }}" method="GET">
                                 <button type="submit">Remover</button>
                             </form>
                         </td>
