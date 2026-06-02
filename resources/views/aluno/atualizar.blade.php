@@ -5,7 +5,7 @@
         <input type="hidden" name="id" value="{{ $aluno->id }}">
 
         <label for="nome">Nome</label>
-        <input type="text" name="Nome" id="nome" value="{{ $aluno->nome }}">
+        <input type="text" name="nome" id="nome" value="{{ $aluno->nome }}">
 
         <button type="submit">Salvar</button>
         @isset($sucess)

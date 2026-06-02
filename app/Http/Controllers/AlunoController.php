@@ -30,7 +30,7 @@ class AlunoController extends Controller
 
     function atualizar(string $id){
         $aluno = new \App\Models\AlunoModel();
-        $aluno::find($id);
+        $aluno = $aluno::find($id);
 
         return view('aluno.atualizar', ['aluno'=>$aluno]);
     }
@@ -40,6 +40,6 @@ class AlunoController extends Controller
         $aluno = $aluno::find($dados->id);
         $aluno->update($dados->all());
 
-        return view('aluno.index', ['sucess'=>'Atualizado!', 'alunos'=>$aluno::all()]);
+        return view('aluno.atualizar', ['success'=>'Atualizado!', 'aluno'=>$aluno]);
     }
 }
