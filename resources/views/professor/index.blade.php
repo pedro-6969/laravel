@@ -34,7 +34,11 @@
                         <button type="submit">Remover</button>
                     </form>
                     </td>
-                    <td><button type="submit">Atualizar</button></td>
+                    <td>
+                    <form action="{{ route('professor.atualizar', ['id'=> $professor->id]) }}" method="GET">
+                        <button type="submit">Atualizar</button>
+                    </form>
+                    </td>
                 </tr>
                 @endforeach
         @endisset
