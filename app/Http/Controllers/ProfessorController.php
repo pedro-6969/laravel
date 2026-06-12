@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProfessorController extends Controller
 {
@@ -13,6 +14,32 @@ class ProfessorController extends Controller
     }
 
     function add(Request $dados){
+        $validator = Validator::make(
+            $dados->all(),
+                [
+                    'nome' => 'required|max:255',
+                    'email' => 'required|max:255',
+                    'telefone' => 'required|max:255',
+                ],
+                [
+                    'nome.required' => 'O campo nome é obrigatório.',
+                    'nome.max' => 'O campo nome deve conter no máximo 255 caracteres.',
+                    
+                    'email.required' => 'O campo e-mail é obrigatório.',
+                    'email.max' => 'O campo e-mail deve conter no máximo 255 caracteres.',
+                    
+                    'telefone.required' => 'O campo telefone é obrigatório.',
+                    'telefone.max' => 'O campo telefone deve conter no máximo 255 caracteres.',
+                ]
+        );
+
+        if ($validator->fails()){
+            return redirect()
+                ->route('professor.index')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $professor = new \App\Models\ProfessorModel();
         $professor::create($dados->all());
 
