@@ -5,7 +5,7 @@
         <input type="text" name="nome" id="nome">
 
         <label for="email">E-mail</label>
-        <input type="text" name="email" id="email">
+        <input type="email" name="email" id="email">
 
         <label for="telefone">Telefone</label>
         <input type="text" name="telefone" id="telefone">

@@ -5,15 +5,22 @@
         <input type="text" name="nome" id="nome">
 
         <label for="hora_inicio">Hora início</label>
-        <input type="datetime-local" name="hora_inicio" id="hora_inicio">
+        <input type="time" name="hora_inicio" id="hora_inicio">
 
         <label for="hora_fim">Hora fim</label>
-        <input type="datetime-local" name="hora_fim" id="hora_fim">
+        <input type="time" name="hora_fim" id="hora_fim">
 
         <button type="submit">Salvar</button>
         @isset($success)
             <h1>{{ $success }}</h1>
         @endisset
+        @if($errors->any())
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
     </form>
     <table border="1">
         <tr>
